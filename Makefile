@@ -8,13 +8,18 @@ RFLAGS		= -O2 -fwhole-program -march=native -pipe -ftree-vectorize -finline-func
 
 LIBS		= 
 
-SRC		= $(wildcard *.c)
+SRC		= $(wildcard src/*.c)
+INC		= $(wildcard src/*.h)
 OBJ		= $(SRC:.c=.o)
 
+.PHONY: default
 default: debug
+
+.PHONY:debug
 debug: CFLAGS += $(DFLAGS)
 debug: $(TARGET)
 
+PHONY:release
 release: CFLAGS += $(RFLAGS)
 release: $(TARGET)
 

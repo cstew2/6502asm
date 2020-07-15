@@ -21,15 +21,19 @@ int main(int argc, char **argv)
 		if(!strcmp(argv[i], "-v")) {
 			v_flag = true;
 		}
-		else if(!strcmp(argv[i], "-f")) {
+		else if(!strncmp(argv[i], "-i", 2)) {
 		       i++;
-		       input = malloc(sizeof(char) * strlen(argv[i])+1);
-		       strcpy(input, argv[i]);
+		       size_t n = strlen(argv[i]);
+		       input = calloc(sizeof(char), n+1);
+		       strncpy(input, argv[i], n);
+		       input[n] = '\0';			      
 		}
-		else if(!strcmp(argv[i], "-o")) {
+		else if(!strncmp(argv[i], "-o", 2)) {
 		       i++;
-		       output = malloc(sizeof(char) * strlen(argv[i])+1);
-		       strcpy(output, argv[i]);
+		       size_t n = strlen(argv[i]);
+		       output = calloc(sizeof(char), n+1);
+		       strncpy(output, argv[i], n);
+		       output[n] = '\0';			      
 		}
 		else if(!strcmp(argv[i], "--help") ||
 			!strcmp(argv[i], "-h")) {
@@ -73,7 +77,9 @@ void print_help(void)
 {
 	printf("6502asm usage: 6502asm [OPTIONS]..\n\n"
 	       "OPTIONS\n"
+	       "-h \t this help"
 	       "-d \t debug information"
 	       "-v \t verbose output"
-	       "-f \t input file\n");
+	       "-i \t input file"
+	       "-o \t output file\n");
 }

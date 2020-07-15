@@ -6,6 +6,7 @@
 
 //prime number
 static const uint64_t INITIAL_SIZE = 67;
+uint64_t xstate;
 
 struct symbol_table symbol_table_init(float load_factor)
 {
@@ -142,7 +143,7 @@ uint64_t get_prime(uint64_t n)
         n = ((n % 2) == 0) ? n+1 : n;
 
 	//find prime integer bigger than n but smaller than 2^64-1
-	while(prime > 9223372036854775806) {
+	while(prime < 9223372036854775806) {
 		//Miller-Rabin primality test
 		
 		//factor out powers of 2 from n-1

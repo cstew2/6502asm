@@ -21,7 +21,7 @@ struct symbol_table{
 };
 
 //PRNG state
-uint64_t xstate;
+extern uint64_t xstate;
 
 //structure initialisation and termination
 struct symbol_table symbol_table_init(float load_factor);
