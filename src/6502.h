@@ -18,6 +18,8 @@ const char IMMEDIATE_CHAR = '#';
 const char LABEL_CHAR = ':';
 const char DIRECTIVE_CHAR = '.';
 
+const char EQUALS_CHAR = '=';
+
 enum directives {
 	START,
 	END,

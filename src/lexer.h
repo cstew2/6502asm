@@ -4,20 +4,22 @@
 #include "fileio.h"
 
 enum token_type{
-	OPCODE,
-	REGISTER,
-	DECIMAL,
-	HEXIDECIMAL,
-	BINARY,
-	DIRECTIVE,
-	LABEL,
-	COMMENT,
-	SEPERATOR,
-	PAREN_L,
-	PAREN_R,
-	EQUALS,
-	STRING,
-	TOKEN_END
+	OPCODE_TOK,
+	REGISTER_TOK,
+	DECIMAL_TOK,
+	HEXIDECIMAL_TOK,
+	BINARY_TOK,
+	DIRECTIVE_TOK,
+	LABEL_DEF_TOK,
+	LABEL_REF_TOK,
+	COMMENT_TOK,
+	SEPERATOR_TOK,
+	PAREN_L_TOK,
+	PAREN_R_TOK,
+	IMMEDIATE_TOK,
+	EQUALS_TOK,
+	STRING_TOK,
+	TOKEN_END_TOK
 };
 
 struct token_alias {
@@ -26,7 +28,7 @@ struct token_alias {
 };
 
 extern const int TOKEN_ALIAS_SIZE;
-extern const struct token_alias TOKEN_ALIASES[13];
+extern const struct token_alias TOKEN_ALIASES[15];
 
 struct token {
 	char *lexeme;
